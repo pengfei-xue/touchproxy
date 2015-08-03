@@ -11,6 +11,8 @@ public class ProxySetter {
     public boolean turnOnProxy(ContentResolver cr, String proxy_addr_port) {
         Log.v(TAG, proxy_addr_port);
         if (Secure.putString(cr, Secure.HTTP_PROXY, proxy_addr_port)) {
+            String proxy_addr_set = Secure.getString(cr, Secure.HTTP_PROXY);
+            Log.v(TAG, proxy_addr_set);
             return true;
         }
         else {
